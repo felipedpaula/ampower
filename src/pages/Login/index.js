@@ -27,7 +27,7 @@ export function Login() {
   return (
     <div className="container">
       <header className="header">
-        <img src='' alt="Workflow" className="logoImg" />
+        {/* <img src='' alt="Workflow" className="logoImg" /> */}
         <span>Por favor digite suas informações de login</span>
       </header>
 
@@ -38,7 +38,7 @@ export function Login() {
             type="text"
             name="email"
             id="email"
-            placeholder="johndoe@gmail.com"
+            placeholder="email@gmail.com"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -57,7 +57,7 @@ export function Login() {
         <a href="#">Esqueceu sua senha ?</a>
 
         <button className="button" onClick={handleSignIn}>
-          Entrar <img src='' alt="->" />
+          Entrar
         </button>
         <div className="footer">
           <p>Você não tem uma conta?</p>
