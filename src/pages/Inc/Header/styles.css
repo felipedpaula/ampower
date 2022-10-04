@@ -1,0 +1,147 @@
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: local('Poppins'), url(../../../assets/fonts/Poppins/Poppins-Regular.ttf) format('truetype');
+}
+
+* {
+    font-family: 'Poppins-Regular';
+}
+header {
+    width: 100%;
+    background-color: #FFF;
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 5px 5px #50505050;
+}
+.center {
+    width: 100%;
+    max-width: 720px;
+    margin: auto;
+    background-color: #FFF;
+    padding: 6px 12px;
+}
+.topo-app {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.topo-icon,
+.topo-icon__img  {
+    width: 32px;
+    height: 32px;
+}
+.topo-title {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.place-choice {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+.medium-card {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 12px;
+    background-color: #e5e5e5;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 5px 0px #50505050;
+}
+.medium-card h3 {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    z-index: 1;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 800;
+}
+.bg-medium-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.8;
+}
+.ad-300x250 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 250px;
+    box-shadow: 0px 5px 5px 0px #50505050;
+    border-radius: 12px;
+    background-color: #e5e5e5;
+    margin: auto;
+}
+.ad-300x250 span {
+    font-size: 12px;
+    color: #808080;
+}
+.area-tipos-services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+.area-tipos-services h2 {
+    font-size: 16px;
+    width: 100%;
+    text-align: left;
+    font-weight: 700;
+} 
+.lista-services {
+    display: flex;
+    width: 100%;
+    margin-top: 15px;
+    flex-direction: column;
+    gap: 12px;
+}
+.list-item {
+    width: 100%;
+    box-shadow: 0px 5px 5px 0px #50505050;
+    border-radius: 12px;
+    background-color: #e5e5e5;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    cursor: pointer;
+}
+.list-item img {
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+}
+.link_icon {
+    width: 32px;
+    height: 32px;
+    border: 0;
+    background-color: #e5e5e5;
+}
+.link_icon-image {
+    width: 32px !important;
+    height: 32px !important;
+}
+.list-item div {
+    display: flex;
+    align-items: center;
+}
+
+
+/* FOOOER */
+.area-footer {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
