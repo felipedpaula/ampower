@@ -40,17 +40,40 @@ header {
 }
 .medium-card {
     position: relative;
-    width: 140px;
-    height: 140px;
+    width: 50%;
+    height: 180px;
     border-radius: 12px;
     background-color: #e5e5e5;
     overflow: hidden;
     display: flex;
     justify-content: center;
+    margin: 5px;
+    align-items: center;
+    box-shadow: 0px 5px 5px 0px #50505050;
+}
+.retangular-card {
+    position: relative;
+    width: 98%;
+    height: 130px;
+    border-radius: 12px;
+    background-color: #e5e5e5;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
     align-items: center;
     box-shadow: 0px 5px 5px 0px #50505050;
 }
 .medium-card h3 {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    z-index: 1;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 800;
+}
+.retangular-card h3 {
     position: absolute;
     top: 15px;
     left: 10px;
@@ -67,7 +90,25 @@ header {
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    opacity: 0.8;
+    opacity: 1;
+}
+.bg-retangular-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 1;
+}
+.bg-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: linear-gradient(to bottom, #00000090, #3b3b3b90, #77777720, #b9b9b910, #ffffff00);
 }
 .ad-300x250 {
     display: flex;
@@ -88,7 +129,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .area-tipos-services h2 {
     font-size: 16px;

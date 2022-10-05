@@ -24,7 +24,7 @@ export function Register() {
   return (
     <div className="container">
       <header className="header">
-        <img src='' alt="cTest" className="logoImg" />
+        {/* <img src='' alt="cTest" className="logoImg" /> */}
         <span>Por favor digite suas informações de cadastro</span>
       </header>
 
@@ -35,7 +35,7 @@ export function Register() {
             type="text"
             name="email"
             id="email"
-            placeholder="johndoe@gmail.com"
+            placeholder="email@gmail.com"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -52,11 +52,11 @@ export function Register() {
         </div>
 
         <button onClick={handleSignOut} className="button">
-          Cadastrar <img src='' alt="->" />
+          Cadastrar
         </button>
         <div className="footer">
           <p>Você já tem uma conta?</p>
-          <Link to="/">Acesse sua conta aqui</Link>
+          <Link to="/login">Acesse sua conta aqui</Link>
         </div>
       </form>
     </div>

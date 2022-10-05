@@ -12,12 +12,17 @@ export function Body () {
 
                 <div className="place-choice">
                     <div className="medium-card">
-                        <img className="bg-medium-card" src={house}/>
-                        <h3>Residência</h3>
+                        <a href="/servicos/residencia">
+                            <img className="bg-medium-card" alt="Serviço para casa" src={house}/>
+                            <div className="bg-gradient"></div>
+                            <h3>Residência</h3>
+                        </a>
                     </div>
                     <div className="medium-card">
-                        <img className="bg-medium-card" src={shop}/>
-                        <h3>Comércio</h3>
+                        <a href="/servicos/comercio">
+                            <img className="bg-medium-card" alt="Serviço para estabelecimento" src={shop}/>
+                            <h3>Comércio</h3>
+                        </a>
                     </div>
                 </div>
 
@@ -30,81 +35,81 @@ export function Body () {
                     <div className="lista-services">
                         <div className="list-item">
                             <div>
-                                <img src={icon_marcenaria} />
+                                <img alt="servico" src={icon_marcenaria} />
                                 <span>Marcenaria</span>
                             </div>
                             <button className="link_icon">
-                                <img className="link_icon-image" src={link_icon} />
+                                <img alt="servico" className="link_icon-image" src={link_icon} />
                             </button>
                         </div>
 
                         <div className="list-item">
                             <div>
-                                <img src={broom} />
+                                <img alt="servico" src={broom} />
                                 <span>Faxina</span>
                             </div>
                             <button className="link_icon">
-                                <img className="link_icon-image" src={link_icon} />
+                                <img alt="servico" className="link_icon-image" src={link_icon} />
                             </button>
                         </div>
                         
                         <div className="list-item">
                             <div>
-                                <img src={icon_marcenaria} />
+                                <img alt="servico" src={icon_marcenaria} />
                                 <span>Marcenaria</span>
                             </div>
                             <button className="link_icon">
-                                <img className="link_icon-image" src={link_icon} />
+                                <img alt="servico" className="link_icon-image" src={link_icon} />
                             </button>
                         </div>
 
                         <div className="list-item">
                             <div>
-                                <img src={icon_marcenaria} />
+                                <img alt="servico" src={icon_marcenaria} />
                                 <span>Marcenaria</span>
                             </div>
                             <button className="link_icon">
-                                <img className="link_icon-image" src={link_icon} />
+                                <img alt="servico" className="link_icon-image" src={link_icon} />
                             </button>
                         </div>
 
                         <div className="list-item">
                             <div>
-                                <img src={icon_marcenaria} />
+                                <img alt="servico" src={icon_marcenaria} />
                                 <span>Marcenaria</span>
                             </div>
                             <button className="link_icon">
-                                <img className="link_icon-image" src={link_icon} />
+                                <img alt="servico" className="link_icon-image" src={link_icon} />
                             </button>
                         </div>
 
                         <div className="list-item">
                             <div>
-                                <img src={icon_marcenaria} />
+                                <img alt="servico" src={icon_marcenaria} />
                                 <span>Marcenaria</span>
                             </div>
                             <button className="link_icon">
-                                <img className="link_icon-image" src={link_icon} />
+                                <img alt="servico" className="link_icon-image" src={link_icon} />
                             </button>
                         </div>
 
                         <div className="list-item">
                             <div>
-                                <img src={icon_marcenaria} />
+                                <img alt="servico"  src={icon_marcenaria} />
                                 <span>Marcenaria</span>
                             </div>
                             <button className="link_icon">
-                                <img className="link_icon-image" src={link_icon} />
+                                <img alt="servico" className="link_icon-image" src={link_icon} />
                             </button>
                         </div>
 
                         <div className="list-item">
                             <div>
-                                <img src={icon_marcenaria} />
+                                <img alt="servico" src={icon_marcenaria} />
                                 <span>Marcenaria</span>
                             </div>
                             <button className="link_icon">
-                                <img className="link_icon-image" src={link_icon} />
+                                <img alt="servico" className="link_icon-image" src={link_icon} />
                             </button>
                         </div>
                     </div>
