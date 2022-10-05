@@ -4,8 +4,6 @@ import broom from "../../../assets/img/Broom.png"
 import rooms from "../../../assets/img/Rooms.png"
 import { Header } from "../Header"
 
-
-
 export function ServicosResidencia () {
     return (
         <>
