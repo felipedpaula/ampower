@@ -10,8 +10,14 @@ export function ServicosResidencia () {
         <Header></Header>  
 
         <div className="center">
+            <a href="/">
+                <span>{'< Voltar'}</span>
+            </a>
+        </div>
+        
+        <div className="center">
             <div className="retangular-card">
-                <a href="/servicos/residencia">
+                <a href="/servicos/residencia/comodos">
                     <img className="bg-retangular-card" alt="Serviço para casa" src={rooms}/>
                     <div className="bg-gradient"></div>
                     <h3>Cômodos</h3>
