@@ -32,3 +32,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/secretaria', function () {
+    return view('secretaria');
+});
+Route::get('/aluno', [App\Http\Controllers\AlunosController::class, 'index']);
+Route::get('/professor', [App\Http\Controllers\ProfessoresController::class, 'index']);
+Route::get('/professor/create', [App\Http\Controllers\ProfessoresController::class, 'create']);
+Route::post('/professor/store', [App\Http\Controllers\ProfessoresController::class, 'store'])->name('professor.store');
+Route::get('/turma', [App\Http\Controllers\TurmasController::class, 'index']);

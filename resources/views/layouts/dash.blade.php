@@ -10,7 +10,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+
 </head>
 <body>
     <header>
@@ -39,7 +40,7 @@
                         <li>Turmas</li>
                         <li>Histórico</li>
                         <li>Pagamentos</li>
-                        <li>Secretaria</li>
+                        <li><a href="/secretaria">Secretaria</a></li>
                         <li>Configurações</li>
                     </ul>
                 </nav>
