@@ -14,6 +14,29 @@ header {
     justify-content: center;
     margin-bottom: 20px;
 }
+.alert {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.alert h4 {
+    margin: 0;
+}
+.alert ul {
+    padding: 0 20px;
+    margin: 12px 0;
+}
+.alert-success {
+    color: #127000;
+    border: 1px solid #127000;
+    background-color: #cceec5;
+}
+.alert-danger {
+    color: #a80000;
+    border: 1px solid #a80000;
+    background-color: #ffd0d0;
+}
 .shadow {
     box-shadow: 0px 50px 5px 0px #00000020;
 }
@@ -28,6 +51,7 @@ header {
     height: 50px;
     justify-content: space-between;
     align-items: center;
+    padding: 0 12px;
 }
 .logo-header {
     width: 150px;
@@ -50,6 +74,7 @@ header {
     min-height: 600px;
     display: flex;
     gap: 15px;
+    padding: 0 12px;
     overflow: hidden;
 }
 .side-menu {
@@ -90,6 +115,9 @@ header {
 .side-menu nav {
     width: 100%;
 }
+.side-menu nav a {
+    text-decoration: none;
+}
 .side-menu nav ul {
     width: 100%;
     padding: 0;
@@ -116,6 +144,17 @@ header {
     width: 100%;
     margin-top: 15px;
 }
+.card-body-header {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.card-body-header h3 {
+    margin: 0;
+}
 .input-form {
     width: 100%;
     display: flex;
@@ -129,6 +168,17 @@ header {
     width: 100%;
     height: 35px;
     border-radius: 4px;
+    border: 1px solid #adadad;
+    padding: 0 8px;
+}
+.input-field-file {
+    height: 40px;
+}
+.btn-save {
+    background-color: #239be0;
+    color: #FFF;
+    border: 0;
+    cursor: pointer;
 }
 .card-body-content {
     width: 100%;
@@ -142,4 +192,42 @@ header {
 }
 .col-form {
     width: 50%;
+}
+.table-default {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-default thead th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+    height: 35px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+.table-default thead th:last-child {
+    width: 150px;
+    text-align: right;
+}
+.table-default tbody td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+.table-default tbody td form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.table-default tbody td:first-child {
+    width: 50px;
+}
+.table-default tbody td:last-child {
+    text-align: right;
+}
+.table-default tbody td a {
+    text-decoration: none;
+    margin-right: 8px;
+    color: blue;
 }

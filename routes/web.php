@@ -33,11 +33,26 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/secretaria', function () {
-    return view('secretaria');
+Route::get('/escola', function () {
+    return view('escola');
 });
-Route::get('/aluno', [App\Http\Controllers\AlunosController::class, 'index']);
-Route::get('/professor', [App\Http\Controllers\ProfessoresController::class, 'index']);
-Route::get('/professor/create', [App\Http\Controllers\ProfessoresController::class, 'create'])->name('professor.create');
-Route::post('/professor/create', [App\Http\Controllers\ProfessoresController::class, 'store'])->name('professor.store');
+
+Route::prefix('professor')->group(function () {
+    Route::get('/', [App\Http\Controllers\ProfessoresController::class, 'index'])->name('professor.index');
+    Route::get('/create', [App\Http\Controllers\ProfessoresController::class, 'create'])->name('professor.create');
+    Route::post('/create', [App\Http\Controllers\ProfessoresController::class, 'store'])->name('professor.store');
+    Route::get('/{id}/edit', [App\Http\Controllers\ProfessoresController::class, 'edit'])->name('professor.edit');
+    Route::post('{id}/update', [App\Http\Controllers\ProfessoresController::class, 'update'])->name('professor.update');
+    Route::post('{id}/delete', [App\Http\Controllers\ProfessoresController::class, 'delete'])->name('professor.delete');
+});
+
+Route::prefix('aluno')->group(function () {
+    Route::get('/', [App\Http\Controllers\AlunosController::class, 'index'])->name('aluno.index');
+    Route::get('/create', [App\Http\Controllers\AlunosController::class, 'create'])->name('aluno.create');
+    Route::post('/create', [App\Http\Controllers\AlunosController::class, 'store'])->name('aluno.store');
+    Route::get('/{id}/edit', [App\Http\Controllers\AlunosController::class, 'edit'])->name('aluno.edit');
+    Route::post('{id}/update', [App\Http\Controllers\AlunosController::class, 'update'])->name('aluno.update');
+    Route::post('{id}/delete', [App\Http\Controllers\AlunosController::class, 'delete'])->name('aluno.delete');
+});
+
 Route::get('/turma', [App\Http\Controllers\TurmasController::class, 'index']);

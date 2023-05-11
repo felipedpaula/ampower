@@ -12,6 +12,9 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.mask.min.js') }}"></script>
+
 </head>
 <body>
     <header>
@@ -36,16 +39,30 @@
 
                 <nav>
                     <ul>
-                        <li>Painel</li>
-                        <li>Turmas</li>
-                        <li>Histórico</li>
-                        <li>Pagamentos</li>
-                        <li><a href="/secretaria">Secretaria</a></li>
-                        <li>Configurações</li>
+                        <a href="/home"><li>Painel</li></a>
+                        <a href="/escola"><li>Escola</li></a>
+                        <a href="/configuracoes"><li>Configurações</li></a>
                     </ul>
                 </nav>
             </div>
             <div class="area-main">
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <h4>Ocoreu um erro!</h4>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 @yield('content')
             </div>
         </div>

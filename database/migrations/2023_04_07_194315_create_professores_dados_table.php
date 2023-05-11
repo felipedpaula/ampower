@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->string('matricula');
+            $table->string('matricula')->unique();
             $table->date('data_nasc')->nullable();
-            $table->string('cpf')->nullable();
-            $table->string('rg')->nullable();
+            $table->string('cpf')->unique()->nullable();
+            $table->string('rg')->unique()->nullable();
             $table->string('tel')->nullable();
             $table->string('cel')->nullable();
             $table->string('endereco')->nullable();

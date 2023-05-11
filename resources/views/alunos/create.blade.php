@@ -12,11 +12,11 @@
 
     <div class="card-body">
         <div class="card-body-title">
-            Novo professor
+            Novo aluno
         </div>
 
         <div class="card-body-content">
-            <form method="POST" action="{{route('professor.store')}}">
+            <form method="POST" action="{{route('aluno.store')}}">
                 @csrf
                 <div class="col-form">
                     <div class="input-form">
@@ -62,12 +62,12 @@
 
                     <div class="input-form">
                         <label for="cep">CEP:</label>
-                        <input id="cep" name="cep" class="input-field-file" type="text" value="{{old('cep')}}">
+                        <input id="cep" name="cep" class="input-field" type="text" value="{{old('cep')}}">
                     </div>
 
                     <div class="input-form">
                         <label for="foto">Foto de perfil:</label>
-                        <input name="foto" class="input-field" type="file">
+                        <input name="foto" class="input-field-file" type="file">
                     </div>
 
                     <div class="input-form">
