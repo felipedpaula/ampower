@@ -38,6 +38,6 @@ Route::get('/secretaria', function () {
 });
 Route::get('/aluno', [App\Http\Controllers\AlunosController::class, 'index']);
 Route::get('/professor', [App\Http\Controllers\ProfessoresController::class, 'index']);
-Route::get('/professor/create', [App\Http\Controllers\ProfessoresController::class, 'create']);
-Route::post('/professor/store', [App\Http\Controllers\ProfessoresController::class, 'store'])->name('professor.store');
+Route::get('/professor/create', [App\Http\Controllers\ProfessoresController::class, 'create'])->name('professor.create');
+Route::post('/professor/create', [App\Http\Controllers\ProfessoresController::class, 'store'])->name('professor.store');
 Route::get('/turma', [App\Http\Controllers\TurmasController::class, 'index']);

@@ -29,7 +29,7 @@
 
     <div class="center">
         <div class="main-container">
-            <div class="side-menu shadow">
+            <div class="side-menu">
                 <div class="welcome-user">
                     Olá, {{ Auth::user()->name }}
                 </div>
@@ -45,7 +45,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="area-main shadow">
+            <div class="area-main">
                 @yield('content')
             </div>
         </div>
