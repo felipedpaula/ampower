@@ -62,12 +62,12 @@
 
                     <div class="input-form">
                         <label for="cep">CEP:</label>
-                        <input id="cep" name="cep" class="input-field-file" type="text" value="{{old('cep')}}">
+                        <input id="cep" name="cep" class="input-field" type="text" value="{{old('cep')}}">
                     </div>
 
                     <div class="input-form">
                         <label for="foto">Foto de perfil:</label>
-                        <input name="foto" class="input-field" type="file">
+                        <input name="foto" class="input-field-file" type="file">
                     </div>
 
                     <div class="input-form">

@@ -80,6 +80,7 @@ class AlunosController extends Controller
             $this->aluno = new Aluno();
             $this->aluno->id_user = $this->user->id;
             $this->aluno->matricula = str_pad(random_int(0, 99999), 5, '0', STR_PAD_LEFT);
+            $this->aluno->id_turma = 123;
             $this->aluno->data_nasc = $data['data_nasc'];
             $this->aluno->cpf = $data['cpf'];
             $this->aluno->rg = $data['rg'];
@@ -92,7 +93,7 @@ class AlunosController extends Controller
             return redirect()->route('aluno.index')->with('success', 'Aluno criado com sucesso!');
 
         } catch (\Exception $e) {
-            return redirect()->route('aluno.create')->with('error', 'Ocorreu um erro ao criar o aluno. Por favor, tente novamente.');
+            return redirect()->route('aluno.create')->with('error', $e);
         }
 
     }
