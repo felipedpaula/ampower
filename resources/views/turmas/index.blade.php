@@ -11,6 +11,40 @@
     </div>
 
     <div class="card-body">
-        Turmas
+        <div class="card-body-header">
+            <h3>Turmas</h3>
+            <a href="{{route('turma.create')}}">Nova turma</a>
+        </div>
+
+        <div class="table-area">
+            @if (isset($turmas) && !empty($turmas))
+                <table class="table-default">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($turmas as $turma)
+                        <tr>
+                            <td>{{$turma->id}}</td>
+                            <td>{{$turma->name}}</td>
+                            <td>
+                                <form method="POST" action="{{route('turma.delete', ['id' => $turma->id])}}">
+                                    @csrf
+                                    <a href="{{route('turmas.edit', ['id' => $turma->id])}}">Editar</a>
+                                    <input onclick="return confirm('Tem certeza de que deseja excluir esta turma?')" type="submit" value="Excluir">
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            @else
+                Você ainda não tem alunos cadastrados.
+            @endif
+        </div>
     </div>
 @endsection

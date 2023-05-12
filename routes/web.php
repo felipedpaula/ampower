@@ -55,4 +55,11 @@ Route::prefix('aluno')->group(function () {
     Route::post('{id}/delete', [App\Http\Controllers\AlunosController::class, 'delete'])->name('aluno.delete');
 });
 
-Route::get('/turma', [App\Http\Controllers\TurmasController::class, 'index']);
+Route::prefix('turma')->group(function () {
+    Route::get('/', [App\Http\Controllers\TurmasController::class, 'index'])->name('turma.index');
+    Route::get('/create', [App\Http\Controllers\TurmasController::class, 'create'])->name('turma.create');
+    Route::post('/create', [App\Http\Controllers\TurmasController::class, 'store'])->name('turma.store');
+    Route::get('/{id}/edit', [App\Http\Controllers\TurmasController::class, 'edit'])->name('turma.edit');
+    Route::post('{id}/update', [App\Http\Controllers\TurmasController::class, 'update'])->name('turma.update');
+    Route::post('{id}/delete', [App\Http\Controllers\TurmasController::class, 'delete'])->name('turma.delete');
+});
