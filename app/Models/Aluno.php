@@ -39,4 +39,16 @@ class Aluno extends Model
         )
         ->first();
     }
+
+    public function gerAlunoByTurmaId($idTurma) {
+        return self::join('users', 'users.id', '=', 'aluno_dados.id_user')
+        ->where('aluno_dados.id_turma', '=', $idTurma)
+        ->select(
+            'users.id',
+            'users.name',
+            'users.status',
+            'aluno_dados.foto'
+        )
+        ->get();
+    }
 }

@@ -91,6 +91,9 @@ class TurmasController extends Controller
         $this->turma = Turma::find($id);
 
         $this->professores = new Professor();
+        $this->alunos = new Aluno();
+
+        $this->dadosPagina['alunos'] = $this->alunos->gerAlunoByTurmaId($id);
         $this->dadosPagina['professores'] = $this->professores->getTodosProfessores();
 
         $this->dadosPagina['turma'] = $this->turma;

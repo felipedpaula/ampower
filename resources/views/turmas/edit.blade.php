@@ -6,7 +6,7 @@
             {{ __('Secretaria') }}
         </div>
         <div class="back-dash">
-            <a href="{{url()->previous()}}">< Voltar</a>
+            <a href="/turma">< Voltar</a>
         </div>
     </div>
 
@@ -63,6 +63,11 @@
                 <div class="col-form">
                     <div class="input-form">
                         <label for="alunos">Alunos na turma:</label>
+                        @foreach ($alunos as $aluno)
+                        <ul>
+                            <li>{{$aluno->name}}</li>
+                        </ul>
+                        @endforeach
                     </div>
                 </div>
             </form>

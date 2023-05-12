@@ -6,7 +6,7 @@
             {{ __('Secretaria') }}
         </div>
         <div class="back-dash">
-            <a href="{{url()->previous()}}">< Voltar</a>
+            <a href="/aluno">< Voltar</a>
         </div>
     </div>
 
