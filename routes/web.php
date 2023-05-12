@@ -29,7 +29,12 @@ Route::get('/', function () {
 // /email/verify: a rota para exibir a página de verificação de e-mail;
 // POST /email/resend: a rota para reenviar o e-mail de verificação;
 // GET /email/verify/{id}/{hash}: a rota para verificar o e-mail do usuário.
-Auth::routes();
+// Auth::routes();
+Auth::routes([
+    'register' => false,
+    'email/verify' => false,
+    'email/resend' => false,
+]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

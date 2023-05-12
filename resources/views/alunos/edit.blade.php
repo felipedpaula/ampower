@@ -70,6 +70,18 @@
                         <input name="foto" class="input-field-file" type="file">
                     </div>
 
+                    <div class="input-form">
+                        <label for="turma">Turma:</label>
+                        <select class="input-field" name="turma" id="turma">
+                            <option value="0">--</option>
+                            @if (isset($turmas) && !empty($turmas))
+                                @foreach ($turmas as $turma)
+                                <option {{$aluno->id_turma == $turma->id ? 'selected' : ''}} value="{{$turma->id}}">{{$turma->nome}}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
+
                     @if (isset($aluno->foto) && !empty($aluno->foto))
                         <img width="50px" height="50px" src="{{$aluno->foto}}" alt="{{$aluno->name}}">
                     @endif

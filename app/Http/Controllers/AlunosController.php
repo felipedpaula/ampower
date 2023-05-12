@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aluno;
+use App\Models\Turma;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class AlunosController extends Controller
     private $user;
     private $aluno;
     private $alunos;
+    private $turmas;
     private $dadosPagina;
 
     public function __construct()
@@ -101,7 +103,9 @@ class AlunosController extends Controller
     public function edit(Request $request) {
         $id = $request->id;
         $this->aluno = new Aluno();
+        $this->turmas = Turma::all();
         $this->dadosPagina['aluno'] = $this->aluno->getAlunoByUserId($id);
+        $this->dadosPagina['turmas'] = $this->turmas;
 
         return view('alunos.edit', $this->dadosPagina);
     }
@@ -120,6 +124,7 @@ class AlunosController extends Controller
             'cel',
             'endereco',
             'cep',
+            'turma',
             'foto'
         ]);
 
@@ -133,6 +138,7 @@ class AlunosController extends Controller
             'cel' => ['nullable', 'max:15'],
             'endereco' => ['nullable', 'string', 'max:255'],
             'cep' => ['nullable', 'max:9'],
+            'turma' => ['nullable', 'string', 'max:2'],
             'foto' => ['nullable', 'file', 'mimes:jpg,png,webp']
         ];
 
@@ -158,6 +164,7 @@ class AlunosController extends Controller
             $this->aluno->cel = $data['cel'];
             $this->aluno->endereco = $data['endereco'];
             $this->aluno->cep = $data['cep'];
+            $this->aluno->id_turma = $data['turma'];
             $this->aluno->save();
 
             return redirect()->route('aluno.index')->with('success', 'Aluno editado com sucesso!');

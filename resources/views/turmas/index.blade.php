@@ -21,7 +21,7 @@
                 <table class="table-default">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Nível</th>
                             <th>Nome</th>
                             <th>Ações</th>
                         </tr>
@@ -29,12 +29,12 @@
                     <tbody>
                         @foreach ($turmas as $turma)
                         <tr>
-                            <td>{{$turma->id}}</td>
-                            <td>{{$turma->name}}</td>
+                            <td>{{$turma->nivel}}</td>
+                            <td>{{$turma->nome}}</td>
                             <td>
                                 <form method="POST" action="{{route('turma.delete', ['id' => $turma->id])}}">
                                     @csrf
-                                    <a href="{{route('turmas.edit', ['id' => $turma->id])}}">Editar</a>
+                                    <a href="{{route('turma.edit', ['id' => $turma->id])}}">Editar</a>
                                     <input onclick="return confirm('Tem certeza de que deseja excluir esta turma?')" type="submit" value="Excluir">
                                 </form>
                             </td>

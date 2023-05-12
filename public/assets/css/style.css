@@ -159,10 +159,11 @@ header {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 .input-form label {
     width: 100%;
+    margin-bottom: 5px;
 }
 .input-field {
     width: 100%;

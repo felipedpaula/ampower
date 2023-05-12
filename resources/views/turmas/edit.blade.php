@@ -12,16 +12,16 @@
 
     <div class="card-body">
         <div class="card-body-title">
-            Nova turma
+            Editar turma
         </div>
 
         <div class="card-body-content">
-            <form method="POST" action="{{route('turma.store')}}">
+            <form method="POST" action="{{route('turma.update', ['id' => $turma->id])}}">
                 @csrf
                 <div class="col-form">
                     <div class="input-form">
                         <label for="name">Nome da turma:</label>
-                        <input name="name" class="input-field" type="text" value="{{old('name')}}">
+                        <input name="name" class="input-field" type="text" value="{{$turma->nome}}">
                     </div>
 
                     <div class="input-form">
@@ -29,7 +29,7 @@
                         <select class="input-field" name="nivel">
                             <option value="0">--</option>
                             @for ($n = 1; $n <= 10; $n++)
-                            <option value="{{$n}}">{{$n}}</option>
+                            <option {{$n == $turma->nivel ? 'selected' : ''}} value="{{$n}}">{{$n}}</option>
                             @endfor
                         </select>
                     </div>
@@ -40,7 +40,7 @@
                             <option value="0">--</option>
                             @if (isset($professores) && !empty($professores))
                                 @foreach ($professores as $professor)
-                                <option value="{{$professor->id}}">{{$professor->name}}</option>
+                                <option {{$turma->id_professor == $professor->id ? 'selected' : ''}} value="{{$professor->id}}">{{$professor->name}}</option>
                                 @endforeach
                             @endif
                         </select>
@@ -48,12 +48,12 @@
 
                     <div class="input-form">
                         <label for="sala">Sala:</label>
-                        <input class="input-field" type="text" name="sala" id="sala">
+                        <input class="input-field" type="text" name="sala" id="sala" value="{{$turma->sala}}">
                     </div>
 
                     <div class="input-form">
                         <label for="horario">Horário aula:</label>
-                        <input class="input-field" type="text" name="horario" id="horario">
+                        <input class="input-field" type="text" name="horario" id="horario" value="{{$turma->horario_aula}}">
                     </div>
 
                     <div class="input-form">
