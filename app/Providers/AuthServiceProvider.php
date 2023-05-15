@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
+use App\Models\Aluno;
+use App\Models\Professor;
+use App\Models\Turma;
+use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -21,6 +25,16 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Gate::define('aluno-config', function (User $user) {
+            return $user->tipo_id === 2;
+        });
+
+        Gate::define('professor-config', function (User $user) {
+            return $user->tipo_id === 2;
+        });
+
+        Gate::define('turma-config', function (User $user) {
+            return $user->tipo_id === 2;
+        });
     }
 }

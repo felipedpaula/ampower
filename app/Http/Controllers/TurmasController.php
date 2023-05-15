@@ -23,6 +23,7 @@ class TurmasController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->authorize('turma-config');
     }
 
     public function index() {

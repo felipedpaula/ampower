@@ -11,10 +11,16 @@
     </div>
 
     <div class="card-body">
-        <ul>
-            <li><a href="/aluno">Alunos</a></li>
-            <li><a href="/professor">Professores</a></li>
-            <li><a href="/turma">Turmas</a></li>
-        </ul>
+        <div class="list-card">
+            <a class="card-single" href="/aluno">
+                Alunos
+            </a>
+            <a class="card-single" href="/professor">
+                Professores
+            </a>
+            <a class="card-single" href="/turma">
+                Turmas
+            </a>
+        </div>
     </div>
 @endsection
