@@ -43,6 +43,7 @@ class Aluno extends Model
     public function gerAlunoByTurmaId($idTurma) {
         return self::join('users', 'users.id', '=', 'aluno_dados.id_user')
         ->where('aluno_dados.id_turma', '=', $idTurma)
+        ->whereNull('users.deleted_at')
         ->select(
             'users.id',
             'users.name',

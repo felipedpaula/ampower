@@ -128,5 +128,30 @@ class TurmasController extends Controller
             ->withErrors($validator)
             ->withInput();
         }
+
+        try {
+            $this->turma = Turma::find($id);
+            $this->turma->nome = $data['name'];
+            $this->turma->nivel = $data['nivel'];
+            $this->turma->id_professor = $data['professor'];
+            $this->turma->sala = $data['sala'];
+            $this->turma->horario_aula = $data['horario'];
+            $this->turma->save();
+
+            return redirect()->route('turma.index')->with('success', 'Turma editada com sucesso!');
+
+        } catch (\Exception $e) {
+            return redirect()->route('turma.edit', ['id'=>$id])->with('error', 'Ocorreu um erro ao criar a turma. Por favor, tente novamente.');
+        }
+    }
+
+    public function delete($id) {
+        $this->turma = Turma::find($id);;
+        try {
+            $this->turma->delete();
+            return redirect()->route('turma.index')->with('success', 'Turma deletada com sucesso!');
+        } catch(\Exception $e) {
+            return redirect()->route('turma.index')->with('error', 'Ocorreu um erro ao deletar a turma. Por favor, tente novamente.');
+        }
     }
 }

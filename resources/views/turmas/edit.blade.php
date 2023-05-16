@@ -63,11 +63,24 @@
                 <div class="col-form">
                     <div class="input-form">
                         <label for="alunos">Alunos na turma:</label>
-                        @foreach ($alunos as $aluno)
-                        <ul>
-                            <li>{{$aluno->name}}</li>
-                        </ul>
-                        @endforeach
+                        <table class="table-default">
+                            {{-- <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead> --}}
+                            <tbody>
+                                @foreach ($alunos as $aluno)
+                                <tr>
+                                    <td>{{$aluno->name}}</td>
+                                    <td>
+                                        <a href="{{route('aluno.edit', ['id' => $aluno->id])}}">Editar</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </form>
