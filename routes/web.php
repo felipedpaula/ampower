@@ -39,7 +39,7 @@ Auth::routes([
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/escola', function () {
-    return view('escola');
+    return view('admin.escola');
 });
 
 Route::prefix('professor')->group(function () {
@@ -72,6 +72,8 @@ Route::prefix('turma')->group(function () {
 Route::prefix('turma-professor')->group(function () {
     Route::get('/', [App\Http\Controllers\TurmaProfessorController::class, 'index'])->name('turmaprof.index');
     Route::get('/{id}', [App\Http\Controllers\TurmaProfessorController::class, 'turma'])->name('turmaprof.turma');
+    Route::get('/{id}/atividade', [App\Http\Controllers\AtividadeController::class, 'index'])->name('atividade.index');
+    Route::get('/{id}/atividade/create', [App\Http\Controllers\AtividadeController::class, 'create'])->name('atividade.create');
     // Route::get('/create', [App\Http\Controllers\TurmaProfessorController::class, 'create'])->name('turma.create');
     // Route::post('/create', [App\Http\Controllers\TurmaProfessorController::class, 'store'])->name('turma.store');
     // Route::get('/{id}/edit', [App\Http\Controllers\TurmaProfessorController::class, 'edit'])->name('turma.edit');

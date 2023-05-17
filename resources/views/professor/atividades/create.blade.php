@@ -11,18 +11,6 @@
     </div>
 
     <div class="card-body">
-        <div class="card-body-header">
-            <h3>Turma: {{$turma->nome}}</h3>
-        </div>
-
-        <div class="table-area">
-            Alunos
-            <ul>
-                @foreach ($alunos as $item)
-                <li>{{$item->name}}</li>
-                @endforeach
-            </ul>
-        </div>
-
+        Nova atividade
     </div>
 @endsection

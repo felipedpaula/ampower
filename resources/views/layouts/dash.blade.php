@@ -33,36 +33,45 @@
     <div class="center">
         <div class="main-container">
             <div class="side-menu">
-                <div class="welcome-user">
-                    Olá, {{ Auth::user()->name }}
+                <div>
+                    <div class="welcome-user">
+                        Olá, {{ Auth::user()->name }}
+                    </div>
+
+                    <nav>
+                        <ul>
+                            <a href="/home"><li>Painel</li></a>
+
+                            {{-- ADMIN --}}
+                            @can('aluno-config')
+                            <a href="/escola"><li>Escola</li></a>
+                            @endcan
+
+                            @can('turma-aluno')
+                            <a href="/turma-aluno"><li>Turma</li></a>
+                            @endcan
+
+                            @can('turma-aluno')
+                            <a href="/configuracoes"><li>Configurações</li></a>
+                            @endcan
+                            {{--END ADMIN --}}
+
+                            {{-- PROFESSOR --}}
+                            @can('turmas-professor')
+                            <a href="/turma-professor"><li>Minhas Turmas</li></a>
+                            @endcan
+
+                        </ul>
+
+                    </nav>
                 </div>
 
-                <nav>
-                    <ul>
-                        <a href="/home"><li>Painel</li></a>
-
-                        {{-- ADMIN --}}
-                        @can('aluno-config')
-                        <a href="/escola"><li>Escola</li></a>
-                        @endcan
-
-                        @can('turma-aluno')
-                        <a href="/turma-aluno"><li>Turma</li></a>
-                        @endcan
-
-                        @can('turma-aluno')
-                        <a href="/configuracoes"><li>Configurações</li></a>
-                        @endcan
-                        {{--END ADMIN --}}
-
-                        {{-- PROFESSOR --}}
-                        @can('turmas-professor')
-                        <a href="/turma-professor"><li>Minhas Turmas</li></a>
-                        @endcan
-
-                    </ul>
-                </nav>
+                <form class="form-logout" method="POST" action="{{route('logout')}}">
+                    @csrf
+                    <input onclick="return confirm('Tem certeza que quer sair?')" type="submit" name="logout" id="logout" value="Sair">
+                </form>
             </div>
+
             <div class="area-main">
                 @if(session('success'))
                     <div class="alert alert-success">

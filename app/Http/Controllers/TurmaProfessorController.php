@@ -33,7 +33,7 @@ class TurmaProfessorController extends Controller
         $this->turmas = new Turma();
         $this->dadosPagina['turmas'] = $this->turmas->getTurmasByProfessorId($profId);
 
-        return view('turmas-professor.index', $this->dadosPagina);
+        return view('professor.turmas-professor.index', $this->dadosPagina);
     }
 
     public function turma(Request $request) {
@@ -50,6 +50,6 @@ class TurmaProfessorController extends Controller
         $this->alunos = new Aluno();
         $this->dadosPagina['alunos'] = $this->alunos->gerAlunoByTurmaId($idTurma);
 
-        return view('turmas-professor.turma', $this->dadosPagina);
+        return view('professor.turmas-professor.turma', $this->dadosPagina);
     }
 }
