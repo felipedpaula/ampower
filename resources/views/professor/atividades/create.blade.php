@@ -11,6 +11,30 @@
     </div>
 
     <div class="card-body">
-        Nova atividade
+        <div class="card-body-title">
+            Nova atividade
+        </div>
+        <div class="card-body-content">
+            <form method="POST" action="">
+                @csrf
+                <div class="col-form">
+                    <div class="input-form">
+                        <label for="nota">Nota máxima:</label>
+                        <input name="nota" class="input-field" type="text" value="{{old('nota')}}">
+                    </div>
+                    <div class="input-form">
+                        <label for="prazo">Prazo:</label>
+                        <input name="prazo" class="input-field" type="text" value="{{old('prazo')}}">
+                    </div>
+                    <div class="input-form">
+                        <label for="descricao">Descrição:</label>
+                        <textarea name="descricao" class="input-field" type="text" value="{{old('descricao')}}"></textarea>
+                    </div>
+                </div>
+                <div class="col-form">
+
+                </div>
+            </form>
+        </div>
     </div>
 @endsection
