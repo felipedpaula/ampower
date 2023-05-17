@@ -63,7 +63,7 @@
                 <div class="col-form">
                     <div class="input-form">
                         <label for="alunos">Alunos na turma:</label>
-                        <table class="table-default">
+                        <table class="table-half">
                             {{-- <thead>
                                 <tr>
                                     <th>Nome</th>

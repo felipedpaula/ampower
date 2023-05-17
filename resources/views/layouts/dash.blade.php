@@ -41,6 +41,7 @@
                     <ul>
                         <a href="/home"><li>Painel</li></a>
 
+                        {{-- ADMIN --}}
                         @can('aluno-config')
                         <a href="/escola"><li>Escola</li></a>
                         @endcan
@@ -49,11 +50,16 @@
                         <a href="/turma-aluno"><li>Turma</li></a>
                         @endcan
 
-                        @can('turma-professor')
-                        <a href="/turma-professor"><li>Turma</li></a>
+                        @can('turma-aluno')
+                        <a href="/configuracoes"><li>Configurações</li></a>
+                        @endcan
+                        {{--END ADMIN --}}
+
+                        {{-- PROFESSOR --}}
+                        @can('turmas-professor')
+                        <a href="/turma-professor"><li>Minhas Turmas</li></a>
                         @endcan
 
-                        <a href="/configuracoes"><li>Configurações</li></a>
                     </ul>
                 </nav>
             </div>

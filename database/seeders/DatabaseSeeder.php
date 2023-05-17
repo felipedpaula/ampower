@@ -37,5 +37,25 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        DB::table('atividade_tipos')->insert([
+            'tipo' => 'Pergunta e Resposta',
+        ]);
+
+        DB::table('atividade_tipos')->insert([
+            'tipo' => 'Completar',
+        ]);
+
+        DB::table('atividade_tipos')->insert([
+            'tipo' => 'Selecionar Correta',
+        ]);
+
+        DB::table('atividade_tipos')->insert([
+            'tipo' => 'Alternativa',
+        ]);
+
+        DB::table('atividade_tipos')->insert([
+            'tipo' => 'Verdadeiro ou Falso',
+        ]);
     }
 }

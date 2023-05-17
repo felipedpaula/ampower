@@ -36,5 +36,10 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('turma-config', function (User $user) {
             return $user->tipo_id === 2;
         });
+
+        Gate::define('turmas-professor', function (User $user) {
+            return $user->tipo_id === 3;
+        });
+
     }
 }

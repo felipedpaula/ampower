@@ -19,10 +19,10 @@ class ProfessoresController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->authorize('professor-config');
     }
 
     public function index() {
+        $this->authorize('turma-config');
         $this->professores = new Professor();
         $this->dadosPagina['professores'] = $this->professores->getTodosProfessores();
 
@@ -30,6 +30,7 @@ class ProfessoresController extends Controller
     }
 
     public function create() {
+        $this->authorize('turma-config');
         return view('professores.create');
     }
 
@@ -98,6 +99,7 @@ class ProfessoresController extends Controller
     }
 
     public function edit(Request $request) {
+        $this->authorize('turma-config');
         $id = $request->id;
         $this->professor = new Professor();
         $this->dadosPagina['professor'] = $this->professor->getProfessorByUserId($id);

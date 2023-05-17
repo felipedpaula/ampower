@@ -23,10 +23,10 @@ class TurmasController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->authorize('turma-config');
     }
 
     public function index() {
+        $this->authorize('turma-config');
         $this->turmas = Turma::all();
         $this->dadosPagina['turmas'] = $this->turmas;
 
@@ -34,6 +34,7 @@ class TurmasController extends Controller
     }
 
     public function create() {
+        $this->authorize('turma-config');
         $this->professores = new Professor();
         $this->dadosPagina['professores'] = $this->professores->getTodosProfessores();
 
@@ -87,6 +88,7 @@ class TurmasController extends Controller
     }
 
     public function edit(Request $request) {
+        $this->authorize('turma-config');
         $id = $request->id;
 
         $this->turma = Turma::find($id);

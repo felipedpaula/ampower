@@ -31,7 +31,7 @@ Route::get('/', function () {
 // GET /email/verify/{id}/{hash}: a rota para verificar o e-mail do usuário.
 // Auth::routes();
 Auth::routes([
-    'register' => false,
+    // 'register' => false,
     'email/verify' => false,
     'email/resend' => false,
 ]);
@@ -67,4 +67,14 @@ Route::prefix('turma')->group(function () {
     Route::get('/{id}/edit', [App\Http\Controllers\TurmasController::class, 'edit'])->name('turma.edit');
     Route::post('{id}/update', [App\Http\Controllers\TurmasController::class, 'update'])->name('turma.update');
     Route::post('{id}/delete', [App\Http\Controllers\TurmasController::class, 'delete'])->name('turma.delete');
+});
+
+Route::prefix('turma-professor')->group(function () {
+    Route::get('/', [App\Http\Controllers\TurmaProfessorController::class, 'index'])->name('turmaprof.index');
+    Route::get('/{id}', [App\Http\Controllers\TurmaProfessorController::class, 'turma'])->name('turmaprof.turma');
+    // Route::get('/create', [App\Http\Controllers\TurmaProfessorController::class, 'create'])->name('turma.create');
+    // Route::post('/create', [App\Http\Controllers\TurmaProfessorController::class, 'store'])->name('turma.store');
+    // Route::get('/{id}/edit', [App\Http\Controllers\TurmaProfessorController::class, 'edit'])->name('turma.edit');
+    // Route::post('{id}/update', [App\Http\Controllers\TurmaProfessorController::class, 'update'])->name('turma.update');
+    // Route::post('{id}/delete', [App\Http\Controllers\TurmaProfessorController::class, 'delete'])->name('turma.delete');
 });

@@ -22,21 +22,23 @@ class AlunosController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->authorize('aluno-config');
     }
 
     public function index() {
         $this->alunos = new Aluno();
         $this->dadosPagina['alunos'] = $this->alunos->getTodosAlunos();
+        $this->authorize('aluno-config');
 
         return view('alunos.index', $this->dadosPagina);
     }
 
     public function create() {
+        $this->authorize('aluno-config');
         return view('alunos.create');
     }
 
     public function store(Request $request) {
+
         $data = $request->only([
             'name',
             'email',
@@ -102,6 +104,9 @@ class AlunosController extends Controller
     }
 
     public function edit(Request $request) {
+
+        $this->authorize('aluno-config');
+
         $id = $request->id;
         $this->aluno = new Aluno();
         $this->turmas = Turma::all();

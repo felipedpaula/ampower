@@ -14,7 +14,12 @@ class Turma extends Model
 
     }
 
-    public function getProfessorTurma() {
-
+    public function getTurmasByProfessorId($idUser) {
+        return Turma::where('id_professor', $idUser)
+        ->orderBy('nivel')
+        ->get();
     }
+
+
+
 }

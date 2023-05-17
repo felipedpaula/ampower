@@ -248,3 +248,43 @@ a.card-single {
     margin-right: 8px;
     color: blue;
 }
+
+/* ----- */
+
+
+
+.table-half {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-half thead th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+    height: 35px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+.table-half thead th:last-child {
+    width: 150px;
+    text-align: right;
+}
+.table-half tbody td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+.table-half tbody td form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.table-half tbody td:last-child {
+    text-align: right;
+}
+.table-half tbody td a {
+    text-decoration: none;
+    margin-right: 8px;
+    color: blue;
+}
