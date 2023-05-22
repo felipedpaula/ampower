@@ -64,7 +64,7 @@ class ProfessoresController extends Controller
         $validator = Validator::make($data, $rules);
 
         if($validator->fails()) {
-            return redirect()->route('admin.professor.create')
+            return redirect()->route('professor.create')
             ->withErrors($validator)
             ->withInput();
         }
@@ -90,10 +90,10 @@ class ProfessoresController extends Controller
             $this->professor->cep = $data['cep'];
             $this->professor->save();
 
-            return redirect()->route('admin.professor.index')->with('success', 'Professor criado com sucesso!');
+            return redirect()->route('professor.index')->with('success', 'Professor criado com sucesso!');
 
         } catch (\Exception $e) {
-            return redirect()->route('admin.professor.create')->with('error', 'Ocorreu um erro ao criar o professor. Por favor, tente novamente.');
+            return redirect()->route('professor.create')->with('error', 'Ocorreu um erro ao criar o professor. Por favor, tente novamente.');
         }
 
     }
@@ -140,7 +140,7 @@ class ProfessoresController extends Controller
         $validator = Validator::make($data, $rules);
 
         if($validator->fails()) {
-            return redirect()->route('admin.professor.edit' , ['id' => $id])
+            return redirect()->route('professor.edit' , ['id' => $id])
             ->withErrors($validator)
             ->withInput();
         }
@@ -161,10 +161,10 @@ class ProfessoresController extends Controller
             $this->professor->cep = $data['cep'];
             $this->professor->save();
 
-            return redirect()->route('admin.professor.index')->with('success', 'Professor editado com sucesso!');
+            return redirect()->route('professor.index')->with('success', 'Professor editado com sucesso!');
 
         } catch (\Exception $e) {
-            return redirect()->route('admin.professor.edit', ['id'=>$id])->with('error', 'Ocorreu um erro ao criar o professor. Por favor, tente novamente.');
+            return redirect()->route('professor.edit', ['id'=>$id])->with('error', 'Ocorreu um erro ao criar o professor. Por favor, tente novamente.');
         }
     }
 
@@ -172,9 +172,9 @@ class ProfessoresController extends Controller
         $this->user = User::find($id);;
         try {
             $this->user->delete();
-            return redirect()->route('admin.professor.index')->with('success', 'Professor deletado com sucesso!');
+            return redirect()->route('professor.index')->with('success', 'Professor deletado com sucesso!');
         } catch(\Exception $e) {
-            return redirect()->route('admin.professor.index')->with('error', 'Ocorreu um erro ao deletar o professor. Por favor, tente novamente.');
+            return redirect()->route('professor.index')->with('error', 'Ocorreu um erro ao deletar o professor. Por favor, tente novamente.');
         }
     }
 }

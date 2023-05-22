@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('atividades', function (Blueprint $table) {
             $table->id();
+            $table->string('titulo');
             $table->unsignedBigInteger('tipo_id');
             $table->foreign('tipo_id')->references('id')->on('atividade_tipos');
             $table->unsignedBigInteger('turma_id');

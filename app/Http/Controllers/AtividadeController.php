@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aluno;
+use App\Models\Atividade;
 use App\Models\Professor;
 use App\Models\Turma;
 use App\Models\User;
@@ -15,6 +16,7 @@ class AtividadeController extends Controller
 {
     private $data;
     private $user;
+    private $atividade;
     private $turma;
     private $alunos;
     private $professor;
@@ -55,5 +57,52 @@ class AtividadeController extends Controller
         $this->dadosPagina['turma'] = $this->turma;
 
         return view('professor.atividades.create', $this->dadosPagina);
+    }
+
+    public function store(Request $request) {
+        $this->authorize('turmas-professor');
+
+        $idTurma = $request->id;
+
+        $data = $request->only([
+            'titulo',
+            'nota',
+            'prazo',
+            'descricao',
+        ]);
+
+        $rules = [
+            'titulo' => ['required', 'max:255'],
+            'nota' => ['required', 'max:255'],
+            'prazo' => ['nullable', 'date'],
+            'descricao' => ['nullable', 'max:255'],
+        ];
+
+        $validator = Validator::make($data, $rules);
+
+        if($validator->fails()) {
+            return redirect()->route('atividade.create' , ['id' => $idTurma])
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        try {
+            $this->atividade = new Atividade();
+            $this->atividade->titulo = $data['titulo'];
+            $this->atividade->tipo_id = 1;
+            $this->atividade->turma_id = $idTurma;
+            $this->atividade->professor_id = Auth::id();
+            $this->atividade->nota = $data['nota'];
+            $this->atividade->prazo = $data['prazo'];
+            $this->atividade->descricao = $data['descricao'];
+            $this->atividade->status = 1;
+
+            $this->atividade->save();
+
+            return redirect()->route('atividade.index')->with('success', 'Atividade criada com sucesso!');
+
+        } catch (\Exception $e) {
+            return redirect()->route('atividade.create')->with('error', 'Ocorreu um erro ao tentar salvar a atividade!');
+        }
     }
 }

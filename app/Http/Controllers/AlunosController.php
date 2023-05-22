@@ -68,7 +68,7 @@ class AlunosController extends Controller
         $validator = Validator::make($data, $rules);
 
         if($validator->fails()) {
-            return redirect()->route('admin.aluno.create')
+            return redirect()->route('aluno.create')
             ->withErrors($validator)
             ->withInput();
         }
@@ -95,10 +95,10 @@ class AlunosController extends Controller
             $this->aluno->cep = $data['cep'];
             $this->aluno->save();
 
-            return redirect()->route('admin.aluno.index')->with('success', 'Aluno criado com sucesso!');
+            return redirect()->route('aluno.index')->with('success', 'Aluno criado com sucesso!');
 
         } catch (\Exception $e) {
-            return redirect()->route('admin.aluno.create')->with('error', 'Ocorreu um erro ao tentar salvar o aluno!');
+            return redirect()->route('aluno.create')->with('error', 'Ocorreu um erro ao tentar salvar o aluno!');
         }
 
     }
@@ -151,7 +151,7 @@ class AlunosController extends Controller
         $validator = Validator::make($data, $rules);
 
         if($validator->fails()) {
-            return redirect()->route('admin.aluno.edit' , ['id' => $id])
+            return redirect()->route('aluno.edit' , ['id' => $id])
             ->withErrors($validator)
             ->withInput();
         }
@@ -173,10 +173,10 @@ class AlunosController extends Controller
             $this->aluno->id_turma = $data['turma'];
             $this->aluno->save();
 
-            return redirect()->route('admin.aluno.index')->with('success', 'Aluno editado com sucesso!');
+            return redirect()->route('aluno.index')->with('success', 'Aluno editado com sucesso!');
 
         } catch (\Exception $e) {
-            return redirect()->route('admin.aluno.edit', ['id'=>$id])->with('error', 'Ocorreu um erro ao criar o aluno. Por favor, tente novamente.');
+            return redirect()->route('aluno.edit', ['id'=>$id])->with('error', 'Ocorreu um erro ao criar o aluno. Por favor, tente novamente.');
         }
     }
 
@@ -184,9 +184,9 @@ class AlunosController extends Controller
         $this->user = User::find($id);;
         try {
             $this->user->delete();
-            return redirect()->route('admin.aluno.index')->with('success', 'Aluno deletado com sucesso!');
+            return redirect()->route('aluno.index')->with('success', 'Aluno deletado com sucesso!');
         } catch(\Exception $e) {
-            return redirect()->route('admin.aluno.index')->with('error', 'Ocorreu um erro ao deletar o aluno. Por favor, tente novamente.');
+            return redirect()->route('aluno.index')->with('error', 'Ocorreu um erro ao deletar o aluno. Por favor, tente novamente.');
         }
     }
 }

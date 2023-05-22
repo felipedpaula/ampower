@@ -30,7 +30,7 @@ class TurmasController extends Controller
         $this->turmas = Turma::all();
         $this->dadosPagina['turmas'] = $this->turmas;
 
-        return view('turmas.index', $this->dadosPagina);
+        return view('admin.turmas.index', $this->dadosPagina);
     }
 
     public function create() {
@@ -41,7 +41,7 @@ class TurmasController extends Controller
         $this->alunos = new Turma(); // Busca alunos da Turma pelo Model Turma
         $this->dadosPagina['alunos'] = $this->alunos->getAlunosTurma();
 
-        return view('turmas.create', $this->dadosPagina);
+        return view('admin.turmas.create', $this->dadosPagina);
     }
 
     public function store(Request $request) {
@@ -101,7 +101,7 @@ class TurmasController extends Controller
 
         $this->dadosPagina['turma'] = $this->turma;
 
-        return view('turmas.edit', $this->dadosPagina);
+        return view('admin.turmas.edit', $this->dadosPagina);
     }
 
     public function update(Request $request) {
