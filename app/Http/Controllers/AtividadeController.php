@@ -17,6 +17,7 @@ class AtividadeController extends Controller
     private $data;
     private $user;
     private $atividade;
+    private $atividades;
     private $turma;
     private $alunos;
     private $professor;
@@ -41,6 +42,9 @@ class AtividadeController extends Controller
 
         $this->turma = Turma::find($idTurma);
         $this->dadosPagina['turma'] = $this->turma;
+
+        $this->atividades = Atividade::all();
+        $this->dadosPagina['atividades'] = $this->atividades;
 
         return view('professor.atividades.index', $this->dadosPagina);
     }
@@ -99,10 +103,10 @@ class AtividadeController extends Controller
 
             $this->atividade->save();
 
-            return redirect()->route('atividade.index')->with('success', 'Atividade criada com sucesso!');
+            return redirect()->route('atividade.index', ['id' => $idTurma])->with('success', 'Atividade criada com sucesso!');
 
         } catch (\Exception $e) {
-            return redirect()->route('atividade.create')->with('error', 'Ocorreu um erro ao tentar salvar a atividade!');
+            return redirect()->route('atividade.create', ['id' => $idTurma])->with('error', 'Ocorreu um erro ao tentar salvar a atividade!');
         }
     }
 }

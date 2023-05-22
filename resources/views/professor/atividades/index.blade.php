@@ -18,6 +18,11 @@
         <div class="card-body-content">
             <div class="body-content-col">
                 Atividades
+                <ul>
+                    @foreach ($atividades as $atividade)
+                    <li>{{$atividade->titulo}}</li>
+                    @endforeach
+                </ul>
             </div>
             <div class="body-content-col">
                 <div class="list-options-turma">
