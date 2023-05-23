@@ -18,15 +18,20 @@
         <div class="card-body-content">
             <div class="body-content-col">
                 Atividades
-                <ul>
+                <ul class="lista-atividades">
                     @foreach ($atividades as $atividade)
-                    <li>{{$atividade->titulo}}</li>
+                    <li>
+                        <div>
+                            {{$atividade->titulo}}
+                        </div>
+                        <a href="{{route('atividade.edit', ['id' => $turma->id, 'id_turma' => $atividade->id])}}">Abrir</a>
+                    </li>
                     @endforeach
                 </ul>
             </div>
             <div class="body-content-col">
                 <div class="list-options-turma">
-                    <a class="option-turma" href="{{route('atividade.create', ['id' => $turma->id])}}">
+                    <a style="margin-top:35px" class="option-turma" href="{{route('atividade.create', ['id' => $turma->id])}}">
                         Nova atividade
                     </a>
                 </div>

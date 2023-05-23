@@ -99,7 +99,7 @@ class AtividadeController extends Controller
             $this->atividade->nota = $data['nota'];
             $this->atividade->prazo = $data['prazo'];
             $this->atividade->descricao = $data['descricao'];
-            $this->atividade->status = 1;
+            $this->atividade->status = 0;
 
             $this->atividade->save();
 
@@ -108,5 +108,17 @@ class AtividadeController extends Controller
         } catch (\Exception $e) {
             return redirect()->route('atividade.create', ['id' => $idTurma])->with('error', 'Ocorreu um erro ao tentar salvar a atividade!');
         }
+    }
+
+    public function edit(Request $request) {
+        $this->authorize('turmas-professor');
+        $idTurma = $request->id;
+        $idAtividade = $request->id_atividade;
+
+        $dadosPagina['turma'] = Turma::find($idTurma);
+        $dadosPagina['atividade'] = Atividade::find($idAtividade);
+
+        return view('professor.atividades.edit', $this->dadosPagina);
+
     }
 }

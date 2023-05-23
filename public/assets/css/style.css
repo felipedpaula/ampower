@@ -291,11 +291,6 @@ a.card-single {
     margin-right: 8px;
     color: blue;
 }
-
-/* ----- */
-
-
-
 .table-half {
     width: 100%;
     border-collapse: collapse;
@@ -330,4 +325,17 @@ a.card-single {
     text-decoration: none;
     margin-right: 8px;
     color: blue;
+}
+
+.lista-atividades {
+    width: 100%;
+    padding: 0;
+    list-style: none;
+}
+.lista-atividades li {
+    height: 35px;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

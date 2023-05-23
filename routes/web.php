@@ -75,6 +75,7 @@ Route::prefix('turma-professor')->group(function () {
     Route::get('/{id}/atividade', [App\Http\Controllers\AtividadeController::class, 'index'])->name('atividade.index');
     Route::get('/{id}/atividade/create', [App\Http\Controllers\AtividadeController::class, 'create'])->name('atividade.create');
     Route::post('/{id}/atividade/store', [App\Http\Controllers\AtividadeController::class, 'store'])->name('atividade.store');
+    Route::get('/{id}/atividade/{id_atividade}', [App\Http\Controllers\AtividadeController::class, 'edit'])->name('atividade.edit');
     // Route::get('/create', [App\Http\Controllers\TurmaProfessorController::class, 'create'])->name('turma.create');
     // Route::post('/create', [App\Http\Controllers\TurmaProfessorController::class, 'store'])->name('turma.store');
     // Route::get('/{id}/edit', [App\Http\Controllers\TurmaProfessorController::class, 'edit'])->name('turma.edit');
