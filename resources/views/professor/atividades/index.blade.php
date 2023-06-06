@@ -24,7 +24,7 @@
                         <div>
                             {{$atividade->titulo}}
                         </div>
-                        <a href="{{route('atividade.edit', ['id' => $turma->id, 'id_turma' => $atividade->id])}}">Abrir</a>
+                        <a href="{{route('atividade.edit', ['id' => $turma->id, 'id_atividade' => $atividade->id])}}">Abrir</a>
                     </li>
                     @endforeach
                 </ul>

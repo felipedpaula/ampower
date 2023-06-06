@@ -115,8 +115,8 @@ class AtividadeController extends Controller
         $idTurma = $request->id;
         $idAtividade = $request->id_atividade;
 
-        $dadosPagina['turma'] = Turma::find($idTurma);
-        $dadosPagina['atividade'] = Atividade::find($idAtividade);
+        $this->dadosPagina['turma'] = Turma::find($idTurma);
+        $this->dadosPagina['atividade'] = Atividade::find($idAtividade);
 
         return view('professor.atividades.edit', $this->dadosPagina);
 

@@ -232,6 +232,29 @@ a.card-single {
     display: flex;
     gap: 20px;
 }
+.card-body-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.add-question {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    border: 1px solid #adadad;
+    border-radius: 4px;
+    color: #adadad;
+    margin-top: 23px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.add-question:hover {
+    color: #239be0;
+    border: 1px solid #239be0;
+}
 .col-form,
 .body-content-col {
     width: 50%;
