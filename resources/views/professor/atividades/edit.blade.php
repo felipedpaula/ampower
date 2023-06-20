@@ -33,7 +33,7 @@
                         </div>
                         <div class="input-form">
                             <label for="descricao">Descrição:</label>
-                            <textarea name="descricao" class="input-field" type="text">{{$atividade->descricao}}</textarea>
+                            <textarea name="descricao" class="input-field">{{$atividade->descricao}}</textarea>
                         </div>
                         <div class="input-form">
                             <input value="Salvar" class="input-field btn-save" type="submit">
@@ -41,12 +41,11 @@
                     </div>
                     <div class="col-form">
                         <div class="input-form">
-                            <a class="add-question" href="#">+ Adicionar nova questão</a>
+                            <a class="add-question" href="{{route('atividade.questao.create', ['id' => $turma->id, 'id_atividade' => $atividade->id])}}">+ Adicionar nova questão</a>
                         </div>
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 @endsection

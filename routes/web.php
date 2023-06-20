@@ -77,9 +77,8 @@ Route::prefix('turma-professor')->group(function () {
     Route::post('/{id}/atividade/store', [App\Http\Controllers\AtividadeController::class, 'store'])->name('atividade.store');
     Route::get('/{id}/atividade/{id_atividade}', [App\Http\Controllers\AtividadeController::class, 'edit'])->name('atividade.edit');
     Route::post('/{id}/atividade/{id_atividade}', [App\Http\Controllers\AtividadeController::class, 'update'])->name('atividade.update');
-    // Route::get('/create', [App\Http\Controllers\TurmaProfessorController::class, 'create'])->name('turma.create');
-    // Route::post('/create', [App\Http\Controllers\TurmaProfessorController::class, 'store'])->name('turma.store');
-    // Route::get('/{id}/edit', [App\Http\Controllers\TurmaProfessorController::class, 'edit'])->name('turma.edit');
-    // Route::post('{id}/update', [App\Http\Controllers\TurmaProfessorController::class, 'update'])->name('turma.update');
-    // Route::post('{id}/delete', [App\Http\Controllers\TurmaProfessorController::class, 'delete'])->name('turma.delete');
+    Route::get('/{id}/atividade/{id_atividade}/questao', [App\Http\Controllers\AtividadeController::class, 'questaoCreate'])->name('atividade.questao.create');
+    // Route::post('/{id}/atividade/{id_atividade}/questao', [App\Http\Controllers\AtividadeController::class, 'questaoStore'])->name('atividade.questao.store');
+    // Route::get('/{id}/atividade/{id_atividade}/questao/{id_questao}', [App\Http\Controllers\AtividadeController::class, 'questaoEdit'])->name('atividade.questao.edit');
+    // Route::post('/{id}/atividade/{id_atividade}/questao/{id_questao}', [App\Http\Controllers\AtividadeController::class, 'questaoUpdate'])->name('atividade.questao.update');
 });

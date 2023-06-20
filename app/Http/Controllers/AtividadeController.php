@@ -121,4 +121,21 @@ class AtividadeController extends Controller
         return view('professor.atividades.edit', $this->dadosPagina);
 
     }
+
+    public function questaoCreate(Request $request) {
+        $this->authorize('turmas-professor');
+
+        $idTurma = $request->id;
+
+        $this->professor = Professor::find(Auth::id());
+        $this->dadosPagina['professor'] = $this->professor;
+
+        $this->turma = Turma::find($idTurma);
+        $this->dadosPagina['turma'] = $this->turma;
+
+        $idAtividade = $request->id_atividade;
+        $this->dadosPagina['atividade'] = Atividade::find($idAtividade);
+
+        return view('professor.atividades.questoes.create', $this->dadosPagina);
+    }
 }
