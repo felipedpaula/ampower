@@ -6,7 +6,7 @@
             {{ __('Área do Professor') }}
         </div>
         <div class="back-dash">
-            <a href="/turma-professor">< Voltar</a>
+            <a href="/turma-professor/{{$turma->id}}/atividade">< Voltar</a>
         </div>
     </div>
 
@@ -45,6 +45,19 @@
                         </div>
                     </div>
                 </form>
+
+                {{-- @if (isset($questoes) && !empty($questoes)) --}}
+                <div class="questoes-atividade-area">
+                    <strong>Questões da atividade</strong>
+                    <div class="lista-questoes">
+                        <ul>
+                            <li>Questão 1</li>
+                            <li>Questão 2</li>
+                            <li>Questão 3</li>
+                        </ul>
+                    </div>
+                </div>
+                {{-- @endif --}}
             </div>
         </div>
     </div>

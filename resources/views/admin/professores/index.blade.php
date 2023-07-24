@@ -6,7 +6,7 @@
             <h4>{{ __('Secretaria') }}</h4>
         </div>
         <div class="back-dash">
-            <a href="/home">< Voltar</a>
+            <a href="/escola">< Voltar</a>
         </div>
     </div>
 

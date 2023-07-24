@@ -6,7 +6,7 @@
             {{ __('Área do Professor') }}
         </div>
         <div class="back-dash">
-            <a href="/turma-professor">< Voltar</a>
+            <a href="/turma-professor/{{$turma->id}}">< Voltar</a>
         </div>
     </div>
 
