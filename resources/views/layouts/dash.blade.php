@@ -14,6 +14,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('assets/js/jquery.mask.min.js') }}"></script>
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
 
 </head>
 <body>
@@ -59,6 +60,10 @@
                             {{-- PROFESSOR --}}
                             @can('turmas-professor')
                             <a href="/turma-professor"><li>Minhas Turmas</li></a>
+                            @endcan
+
+                            @can('turmas-professor')
+                            <a href="/chat"><li>Chat</li></a>
                             @endcan
 
                         </ul>

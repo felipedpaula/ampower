@@ -82,3 +82,9 @@ Route::prefix('turma-professor')->group(function () {
     // Route::get('/{id}/atividade/{id_atividade}/questao/{id_questao}', [App\Http\Controllers\AtividadeController::class, 'questaoEdit'])->name('atividade.questao.edit');
     // Route::post('/{id}/atividade/{id_atividade}/questao/{id_questao}', [App\Http\Controllers\AtividadeController::class, 'questaoUpdate'])->name('atividade.questao.update');
 });
+
+Route::prefix('chat')->group(function() {
+    Route::get('/', [App\Http\Controllers\PusherController::class, 'index'])->name('professor.chat');
+    Route::post('/broadcast', [App\Http\Controllers\PusherController::class, 'broadcast']);
+    Route::post('/receive', [App\Http\Controllers\PusherController::class, 'receive']);
+});
