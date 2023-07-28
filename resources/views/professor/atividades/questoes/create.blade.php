@@ -16,12 +16,12 @@
         </div>
         <div class="card-body-content">
             <div class="card-body-column">
-                <form method="POST" action="{{route('')}}">
+                <form method="POST" action="{{route('atividade.questao.create', ['id' => $turma->id, 'id_atividade' => $atividade->id])}}">
                     @csrf
                     <div class="col-form">
                         <div class="input-form">
-                            <label for="questao">Questão:</label>
-                            <textarea name="titulo" class="input-field"></textarea>
+                            <label for="enunciado">Questão:</label>
+                            <textarea name="enunciado" class="input-field"></textarea>
                         </div>
                         <div class="input-form">
                             <input value="Salvar" class="input-field btn-save" type="submit">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Aluno;
 use App\Models\Atividade;
+use App\Models\Exercicio;
 use App\Models\Professor;
 use App\Models\Turma;
 use App\Models\User;
@@ -28,7 +29,8 @@ class AtividadeController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
 
         $this->authorize('turmas-professor');
 
@@ -49,7 +51,8 @@ class AtividadeController extends Controller
         return view('professor.atividades.index', $this->dadosPagina);
     }
 
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $this->authorize('turmas-professor');
 
         $idTurma = $request->id;
@@ -63,7 +66,8 @@ class AtividadeController extends Controller
         return view('professor.atividades.create', $this->dadosPagina);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $this->authorize('turmas-professor');
 
         $idTurma = $request->id;
@@ -122,7 +126,8 @@ class AtividadeController extends Controller
 
     }
 
-    public function questaoCreate(Request $request) {
+    public function questaoCreate(Request $request)
+    {
         $this->authorize('turmas-professor');
 
         $idTurma = $request->id;
@@ -137,5 +142,48 @@ class AtividadeController extends Controller
         $this->dadosPagina['atividade'] = Atividade::find($idAtividade);
 
         return view('professor.atividades.questoes.create', $this->dadosPagina);
+    }
+
+    public function  questaoStore(Request $request)
+    {
+        $this->authorize('turmas-professor');
+
+        $idTurma = $request->id;
+
+        $this->turma = Turma::find($idTurma);
+        $this->dadosPagina['turma'] = $this->turma;
+
+        $idAtividade = $request->id_atividade;
+        $this->dadosPagina['atividade'] = Atividade::find($idAtividade);
+
+        $data = $request->only([
+            'enunciado',
+        ]);
+
+        $rules = [
+            'enunciado' => ['required', 'max:255'],
+        ];
+
+        $validator = Validator::make($data, $rules);
+
+        if($validator->fails()) {
+            return redirect()->route('atividade.questao.create' , ['id' => $idTurma, 'id_atividade' => $idAtividade])
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        try {
+            $this->atividade = new Exercicio();
+            $this->atividade->titulo = 'Titulo';
+            $this->atividade->enunciado = $data['enunciado'];
+            $this->atividade->id_turma = $idTurma;
+
+            $this->atividade->save();
+
+            return redirect()->route('atividade.edit', ['id' => $idTurma, 'id_atividade' => $idAtividade])->with('success', 'Atividade criada com sucesso!');
+
+        } catch (\Exception $e) {
+            return redirect()->route('atividade.edit', ['id' => $idTurma, 'id_atividade' => $idAtividade])->with('error', 'Ocorreu um erro ao tentar salvar a atividade!');
+        }
     }
 }
