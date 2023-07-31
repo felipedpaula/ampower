@@ -41,13 +41,13 @@
                     </div>
                     <div class="col-form">
                         <div class="input-form">
-                            <a class="add-question" href="{{route('atividade.questao.create', ['id' => $turma->id, 'id_atividade' => $atividade->id])}}">+ Adicionar nova questão</a>
+                            <a class="add-question" href="{{route('atividade.exercicio.create', ['id' => $turma->id, 'id_atividade' => $atividade->id])}}">+ Adicionar novo exercício</a>
                         </div>
                     </div>
                 </form>
 
                 {{-- @if (isset($questoes) && !empty($questoes)) --}}
-                <div class="questoes-atividade-area">
+                {{-- <div class="questoes-atividade-area">
                     <strong>Questões da atividade</strong>
                     <div class="lista-questoes">
                         <ul>
@@ -56,7 +56,7 @@
                             <li>Questão 3</li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 {{-- @endif --}}
             </div>
         </div>

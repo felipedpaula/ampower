@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('exercicios', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
+            $table->unsignedBigInteger('tipo_id');
+            $table->foreign('tipo_id')->references('id')->on('exercicio_tipos');
             $table->text('enunciado');
             $table->string('img')->nullable();
             $table->unsignedBigInteger('id_turma');

@@ -18,6 +18,7 @@ class AtividadeController extends Controller
     private $data;
     private $user;
     private $atividade;
+    private $exercicio;
     private $atividades;
     private $turma;
     private $alunos;
@@ -97,7 +98,6 @@ class AtividadeController extends Controller
         try {
             $this->atividade = new Atividade();
             $this->atividade->titulo = $data['titulo'];
-            $this->atividade->tipo_id = 1;
             $this->atividade->turma_id = $idTurma;
             $this->atividade->professor_id = Auth::id();
             $this->atividade->nota = $data['nota'];
@@ -114,7 +114,12 @@ class AtividadeController extends Controller
         }
     }
 
-    public function edit(Request $request) {
+    // IMPLEMENTAR
+    public function update(Request $request)
+    {}
+
+    public function edit(Request $request)
+    {
         $this->authorize('turmas-professor');
         $idTurma = $request->id;
         $idAtividade = $request->id_atividade;
@@ -126,7 +131,7 @@ class AtividadeController extends Controller
 
     }
 
-    public function questaoCreate(Request $request)
+    public function exercicioCreate(Request $request)
     {
         $this->authorize('turmas-professor');
 
@@ -141,10 +146,10 @@ class AtividadeController extends Controller
         $idAtividade = $request->id_atividade;
         $this->dadosPagina['atividade'] = Atividade::find($idAtividade);
 
-        return view('professor.atividades.questoes.create', $this->dadosPagina);
+        return view('professor.atividades.exercicio.create', $this->dadosPagina);
     }
 
-    public function  questaoStore(Request $request)
+    public function exercicioStore(Request $request)
     {
         $this->authorize('turmas-professor');
 
@@ -158,29 +163,34 @@ class AtividadeController extends Controller
 
         $data = $request->only([
             'enunciado',
+            'tipo_exercicio',
+            'titulo'
         ]);
 
         $rules = [
             'enunciado' => ['required', 'max:255'],
+            'titulo' => ['required', 'max:255'],
+            'tipo_exercicio' => ['required']
         ];
 
         $validator = Validator::make($data, $rules);
 
         if($validator->fails()) {
-            return redirect()->route('atividade.questao.create' , ['id' => $idTurma, 'id_atividade' => $idAtividade])
+            return redirect()->route('atividade.exercicio.create' , ['id' => $idTurma, 'id_atividade' => $idAtividade])
             ->withErrors($validator)
             ->withInput();
         }
 
         try {
-            $this->atividade = new Exercicio();
-            $this->atividade->titulo = 'Titulo';
-            $this->atividade->enunciado = $data['enunciado'];
-            $this->atividade->id_turma = $idTurma;
+            $this->exercicio = new Exercicio();
+            $this->exercicio->titulo = $data['titulo'];
+            $this->exercicio->enunciado = $data['enunciado'];
+            $this->exercicio->tipo_id = $data['tipo_exercicio'];
+            $this->exercicio->id_turma = $idTurma;
 
-            $this->atividade->save();
+            $this->exercicio->save();
 
-            return redirect()->route('atividade.edit', ['id' => $idTurma, 'id_atividade' => $idAtividade])->with('success', 'Atividade criada com sucesso!');
+            return redirect()->route('atividade.edit', ['id' => $idTurma, 'id_atividade' => $idAtividade])->with('success', 'Exercício criado com sucesso!');
 
         } catch (\Exception $e) {
             return redirect()->route('atividade.edit', ['id' => $idTurma, 'id_atividade' => $idAtividade])->with('error', 'Ocorreu um erro ao tentar salvar a atividade!');
